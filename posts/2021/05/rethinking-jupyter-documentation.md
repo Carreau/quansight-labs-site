@@ -12,13 +12,13 @@
 
 Jupyter Notebook first release was 8 years ago – under the IPython Notebook
 name at the time. Even if notebooks were not invented by Jupyter; they were
-definitely democratized by it. Being Web powered allowed development of many
+definitely democratized by it. Being web powered allowed development of many
 changes in the Datascience world. Objects now often expose rich representation; from
-Pandas dataframes with as html tables, to more recent [Scikit-learn model](https://github.com/scikit-learn/scikit-learn/pull/14180).
+Pandas dataframes with html tables, to more recent [Scikit-learn model](https://github.com/scikit-learn/scikit-learn/pull/14180).
 
 Today I want to look into a topic that has not evolved much since, and I believe
 could use an upgrade. Accessing interactive Documentation when in a Jupyter
-session, and what it could become. At the end I'll link to my current prototype
+session, and what it could become. At the end I'll link to my current prototype that you can try
 if you are adventurous.
 
 <!-- TEASER_END -->
@@ -28,8 +28,8 @@ if you are adventurous.
 The current documentation of IPython and Jupyter come in a few forms, but mostly
 have the same limitation.
 The typical way to reach for help is to use the `?` operator. Depending on
-the frontend you are using it will bring a pager, or a panel that will display
-some information about the current object.
+the frontend you are using it will bring a page or a panel that will display
+information about the current object.
 
 It can show some information about the current object (signature, file,
 sub/super classes) and the raw DocString of the object.
@@ -56,12 +56,12 @@ Compared to rendered documentation, the help documentation is:
 
 There is also no access to non-docstring based documentation, **no narrative**,
 **no tutorials**, **no image gallery or examples**, no search, no syntax
-highlighting, no way to interact or modify documentation to test effects of
+highlighting, no way to interact or modify documentation to test the effects of
 parameters.
 
 # Limitation for authors
 
-Due to Jupyter and IPython limitations to display documentation I believe
+Due to Jupyter and IPython limitations to display documentation, I believe
 authors are often contained to document functions.
 
 Syntax in docstrings is often kept simple for readability, this first version is
@@ -82,14 +82,14 @@ This also leads to long discussions about which syntax to use in advance areas,
 like formulas in [Sympy's docstrings](https://github.com/sympy/sympy/issues/14964).
 
 Many projects have to implement dynamic docstrings; for example to include all
-the parameter a function or class would pass down using ``**kwargs`` (search
+the parameters a function or class would pass down using ``**kwargs`` (search
 matplotlib source for `_kwdoc` , or pandas DataFrame for example).
 
 This can make it relatively difficult for authors and contributors to properly
 maintain and provide comprehensive docs.
 
 I'm not sure I can completely predict all the side effects this has on how library
-maintainers write docs; but I believe there is also a strong opportunity for a
+maintainers write docs, but I believe there is also a strong opportunity for a
 tool to help there. See for example [vélin](https://github.com/Carreau/velin)
 which attempts to auto reformat and fix common NumPyDoc's format mistakes and
 typos – but that's a subject of a future post.
@@ -125,7 +125,7 @@ detected that  `` `n` `` is incorrect as it should have double backticks; notice
 the rendering of the math even in terminal.
 
 For that matter technically this does not care as to whether the DocString is
-written in RST or Markdown; though I need to implement the later part. I believe
+written in RST or Markdown although I need to implement the later part. I believe
 though that some maintainers would be quite happy to use markdown whose syntax
 more users are familiar with.
 
@@ -133,7 +133,7 @@ more users are familiar with.
 
 It supports navigation – here in terminal – where clicking or pressing enter on a
 link would bring you to the target page. In above gif you can see that many
-token of code example are also automatically type-inferred (thanks [Jedi](https://github.com/davidhalter/jedi)), and
+token of code examples are also automatically type-inferred (thanks [Jedi](https://github.com/davidhalter/jedi)), and
 can also be clicked to navigate to their corresponding page.
 
 <img alt="papyri terminal-fig" src="/images/2021/05/papyri-terminal-fig.png" class='center' >
@@ -149,7 +149,7 @@ I'm working on a number of other features, in particular :
 
  - rendering of narrative docs – for which I have a prototype,
  - automatic indexing of all the figures and plots –  working but slow right now.
- - proper cross library reference and indexing without the need for intersphinx.
+ - proper cross-library reference and indexing without the need for intersphinx.
    For example, It is possible from the `numpy.linspace` page to see all pages that
    reference it, or use `numpy.linspace` in their example section
    (see previous image).
@@ -157,12 +157,12 @@ I'm working on a number of other features, in particular :
 And many others, like showing a graph of the local references between functions,
 search, and preference configurability. I think this could also support many
 other desirable features, like user preferences (hide/show type annotation,
-deprecated directives, and custom coloration/syntax), though haven't started
-working on these, and I have some ideas on how this could be used to provide
+deprecated directives, and custom coloration/syntax), though I haven't started
+working on these. I have some ideas on how this could be used to provide
 translations as well.
 
-Right now, is it not as fast and efficient as I would like to – though it's faster
-than running Sphinx on the fly – but requires some ahead of time processing. And it
+Right now, is it not as fast and efficient as I would like to be – though it's faster
+than running Sphinx on the fly – but requires some ahead-of-time processing. And it
 crashes in many places; it can render most of the documentation of Scipy, NumPy,
 xarray, IPython and scikit-image.
 
@@ -172,7 +172,7 @@ nice addition to Sphinx when consulting documentation from within Jupyter.
 
 For now I've submitted a [Letter of intent to CZI EOSS
 4](https://docs.google.com/document/d/1hk-Ww7pUwnoHINNhDeP9UOPvNEemAFe-pohK5dCtZPs/edit?usp=sharing)
-in an attempt to get some of that work funded to land in IPython, and if you
+in an attempt to get some of that work funded to land in IPython. If you
 have any interest in contributing or want something like that for your library,
 feel free to reach out.
 
@@ -181,7 +181,7 @@ it's still in pre-alpha stage. It is still quite unstable with too many hard
 coded values to my taste, and need some polish to be considered usable for production.
 I've focused my effort for now mostly on terminal rendering – a Jupyter notebook
 or JupyterLab extension would be welcome. So if you are adventurous and like to work
-from the cutting (or even bleeding) edge, please feel free to try it out and
+with the cutting (or even bleeding) edge, please feel free to try it out and
 open issues/pull request.
 
 It also needs to be better documented (pun intended), I'm hoping to use papyri itself to
