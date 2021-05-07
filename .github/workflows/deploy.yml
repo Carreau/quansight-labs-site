@@ -28,6 +28,6 @@ jobs:
       # -r : use this git remote for the push
       # -b : use this branch to commit/push to
       # <directory> : should match the OUTPUT_DIR from conf.py, 'output' by default
-      run: ghp-import -m"Automatic push by ghp-import" -f -p -r origin -b gh-pages output
+      run: ghp-import -m"Automatic push by ghp-import" -f -p -r origin -b gh-pages-test output
 
 
