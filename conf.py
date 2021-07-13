@@ -1279,7 +1279,7 @@ WARN_ABOUT_TAG_METADATA = False
 # Put in global_context things you want available on all your templates.
 # It can be anything, data, functions, modules, etc.
 
-GLOBAL_CONTEXT = ['utterances_config'] = {
+GLOBAL_CONTEXT['utterances_config'] = {
         "issue-term": "title",
         "label": "utterances",
         "theme": "github-light",
